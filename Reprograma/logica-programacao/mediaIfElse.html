@@ -1,0 +1,24 @@
+<h1>IF e ELSE em JS</h1>
+
+<!--JAVASCRIPT-->
+
+<script>
+    // entrada
+    var n1 = prompt("Digite o n1:");
+    var n2 = prompt("Digite o n2:");
+    var n3 = prompt("Digite o n3:");
+
+    //processamento
+    n1 = parseInt(n1);
+    n2 = parseInt(n2);
+    n3 = parseInt(n3);
+
+    //dessa maneira o isNaN pode identificar todos os números ao mesmo tempo para ver se algum não é número   
+    if (isNaN(n1) || isNaN(n2) || isNaN(n3)) {
+        alert("Digite apenas números!");
+    } else {
+        media = (n1 + n2 + n3) / 3;
+        alert("A média é: " + media);
+    }
+
+</script>

@@ -1,0 +1,87 @@
+<!--HTML-->
+
+<h1>VERIFICADOR DE APROVAÇÃO</h1>
+
+<form onsubmit="return validaNota()">
+    <div>
+    <label>NOTA 1:</label>
+    <input id="nota1" type="text">
+    </div>
+    <div>
+    <label>NOTA 2:</label>
+    <input id="nota2" type="text">
+    </div>
+    <div>
+    <label>NOTA 3:</label>
+    <input id="nota3" type="text">
+    </div>
+    <div><br>
+    <button type="submit">VERIFICAR</button>
+    </div>
+
+</form>
+
+<p id="mensagem"></p>
+
+<!--JAVASCRIPT-->
+
+<script>
+    function validaNota() {
+
+    // entrada
+    var inputNota1 = document.getElementById("nota1");
+    var nota1 = inputNota1.value;
+    var paragrafoNota = document.getElementById("mensagem")
+
+    var inputNota2 = document.getElementById("nota2");
+    var nota2 = inputNota2.value;
+    var paragrafoNota = document.getElementById("mensagem")
+
+    var inputNota3 = document.getElementById("nota3");
+    var nota3 = inputNota3.value;
+    var paragrafoNota = document.getElementById("mensagem")
+
+    //processamento
+    nota1 = parseInt(nota1);
+    nota2 = parseInt(nota2);
+    nota3 = parseInt(nota3);
+
+    if (nota1 == "" || nota2 == "" || nota3 == "") {     
+        paragrafoNota.textContent = "Por favor preencha uma Nota!";
+    } 
+        else {
+                if (isNaN(nota1) || isNaN(nota2) || isNaN(nota3)) {               
+                    paragrafoNota.textContent = "Por favor preencha apenas com Números!"
+                }
+                    
+                        else {
+                                    if (nota1 < 0 || nota2 < 0 || nota3 < 0) {                             
+                                        paragrafoNota.textContent = "Por favor preencha apenas com Números POSITIVOS!"
+                                } 
+
+                                                else {                                                
+                                                            media = (nota1 + nota2 + nota3) / 3;
+
+                                                                if (media >= 6.0){                                                             
+                                                                    paragrafoNota.textContent = "APROVADO! Parabéns!"
+                                                                }
+
+                                                                        else {
+                                                                                if (media < 6.0){                                                                       
+                                                                                paragrafoNota.textContent = "REPROVADO! Tente de novo..."
+                                                                        }
+                                                            
+                                                }
+                                        }           
+                        }
+        }
+
+    return false;
+
+}
+     
+   
+
+</script>
+
+

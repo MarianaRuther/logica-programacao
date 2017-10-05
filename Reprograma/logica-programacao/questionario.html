@@ -1,0 +1,36 @@
+<!--HTML-->
+
+<h1>Qual é o seu nome?</h1>
+<form onsubmit="return validaNome()">
+    <label>Meu nome é:</label>
+    <input id="nome" type="text">
+    <button type="submit">Responder</button>
+</form>
+<p id="mensagem"></p>
+
+<!--JAVASCRIPT-->
+
+<script>
+    function validaNome() {
+        //entrada
+        var inputNome = document.getElementById("nome");
+        var nome = inputNome.value;
+        var paragrafoMensagem = document.getElementById("mensagem");
+
+        //processamento
+        if (nome == "") {
+            //alerta preencha
+            // alert("Por favor preencha o seu nome!");
+            //saída: alterar o conteúdo do paráfrafo
+            paragrafoMensagem.textContent = "Por favor preencha o nome!";
+        } else {
+            //alerta de boas-vindas
+            // alert("Seja bem-vinda(o) " + nome + "!!");
+            //saída: alterar o conteúdo do parágrafo
+            paragrafoMensagem.textContent = "Seja bem-vinda(o) " + nome + "!!";
+        }
+
+        return false;
+    }
+
+</script>
