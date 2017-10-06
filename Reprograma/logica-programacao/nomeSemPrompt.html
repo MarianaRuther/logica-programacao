@@ -1,0 +1,33 @@
+<!--HTML-->
+
+<h1>Exercício Nome *Sem Prompt*</h1>
+
+<form onsubmit="return validaNome()">
+    <br>
+    <div>
+        <label>Digite seu Nome:</label>
+        <input id="nome" type="text">
+        <button type="submit">ENVIAR</button>
+    </div>
+</form>
+
+<p id="mensagem"></p>
+
+
+<!--JAVASCRIPT-->
+
+<script>
+    function validaNome() {
+        var nome = document.getElementById("nome").value;
+        var paragrafoMensagem = document.getElementById("mensagem");
+
+        if (nome == "") {
+            paragrafoMensagem.textContent = "Você não preencheu seu nome! Tente novamente!";
+        } else {
+            paragrafoMensagem.textContent = "Olá " + nome + "!! Seja muito bem-vinda(o)!";
+        }
+
+        return false;
+    }
+
+</script>

@@ -1,0 +1,38 @@
+<h1>Função para Calcular</h1>
+<form>
+    <label for="num1">Num1</label>
+    <input id="num1" type="text">
+    <br>
+
+    <label for="num2">Num2</label>
+    <input id="num2" type="text">
+
+    <button type="submit">Responder</button>
+
+</form>
+
+<p id="mensagem"></p>
+
+<script>
+    function responder() {
+        //entradas
+        var num1 = document.getElementById("num1").value;
+        var num2 = document.getElementById("num2").value;
+
+        num1 = parseInt(num1);
+        num2 = parseInt(num2);
+
+        var resultado = comparaNumeros(num1, num2);
+        
+        var paragrafo = document.getElementById("mensagem");
+        paragrafo.textContent = "O resultado é: " + resultado;
+    }
+
+    function comparaNumeros(num1, num2) {
+        var resposta = num1 > num2;
+        return resposta;
+
+    }
+
+
+</script>
