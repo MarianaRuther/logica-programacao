@@ -1,22 +1,22 @@
 <!--HTML-->
 
-<h1>VERIFICADOR DE APROVAÇÃO</h1>
+<h1>VERIFICADOR DE APROVAÇÃO - Solução 1</h1>
 
 <form onsubmit="return validaNota()">
     <div>
-    <label>NOTA 1:</label>
-    <input id="nota1" type="text">
+        <label>NOTA 1:</label>
+        <input id="nota1" type="text">
     </div>
     <div>
-    <label>NOTA 2:</label>
-    <input id="nota2" type="text">
+        <label>NOTA 2:</label>
+        <input id="nota2" type="text">
     </div>
     <div>
-    <label>NOTA 3:</label>
-    <input id="nota3" type="text">
+        <label>NOTA 3:</label>
+        <input id="nota3" type="text">
     </div>
     <div><br>
-    <button type="submit">VERIFICAR</button>
+        <button type="submit">VERIFICAR</button>
     </div>
 
 </form>
@@ -28,60 +28,45 @@
 <script>
     function validaNota() {
 
-    // entrada
-    var inputNota1 = document.getElementById("nota1");
-    var nota1 = inputNota1.value;
-    var paragrafoNota = document.getElementById("mensagem")
+        // entrada
+        var nota1 = document.getElementById("nota1").value; //mandeira de pegar o campo (getElementById) e também armazenar a variável (.value)
+        var nota2 = document.getElementById("nota2").value;
+        var nota3 = document.getElementById("nota3").value;
+        var paragrafoNota = document.getElementById("mensagem")
 
-    var inputNota2 = document.getElementById("nota2");
-    var nota2 = inputNota2.value;
-    var paragrafoNota = document.getElementById("mensagem")
-
-    var inputNota3 = document.getElementById("nota3");
-    var nota3 = inputNota3.value;
-    var paragrafoNota = document.getElementById("mensagem")
-
-    //processamento
-    nota1 = parseInt(nota1);
-    nota2 = parseInt(nota2);
-    nota3 = parseInt(nota3);
-
-    if (nota1 == "" || nota2 == "" || nota3 == "") {     
-        paragrafoNota.textContent = "Por favor preencha uma Nota!";
-    } 
+        
+        //processamento
+        if (nota1 == "" || nota2 == "" || nota3 == "") {
+            //código se for true
+            paragrafoNota.textContent = "Por favor preencha todos os campos!";
+        }
         else {
-                if (isNaN(nota1) || isNaN(nota2) || isNaN(nota3)) {               
-                    paragrafoNota.textContent = "Por favor preencha apenas com Números!"
-                }
-                    
-                        else {
-                                    if (nota1 < 0 || nota2 < 0 || nota3 < 0) {                             
-                                        paragrafoNota.textContent = "Por favor preencha apenas com Números POSITIVOS!"
-                                } 
+            //código se for false
+            nota1 = parseFloat(nota1);
+            nota2 = parseFloat(nota2);
+            nota3 = parseFloat(nota3);
 
-                                                else {                                                
-                                                            media = (nota1 + nota2 + nota3) / 3;
+            if (isNaN(nota1) || isNaN(nota2) || isNaN(nota3)) {
+                paragrafoNota.textContent = "Por favor preencha somente com números!"
+            } else {
+                if (nota1 < 0 || nota2 < 0 || nota3 < 0) {
+                    paragrafoNota.textContent = "Por favor preencha apenas com números POSITIVOS!"
+                } else {
+                    var media = (nota1 + nota2 + nota3) / 3;
 
-                                                                if (media >= 6.0){                                                             
-                                                                    paragrafoNota.textContent = "APROVADO! Parabéns!"
-                                                                }
-
-                                                                        else {
-                                                                                if (media < 6.0){                                                                       
-                                                                                paragrafoNota.textContent = "REPROVADO! Tente de novo..."
-                                                                        }
-                                                            
-                                                }
-                                        }           
+                    if (media >= 6.0) {
+                        paragrafoNota.textContent = "Mano, UFA! APROVADO! Parabéns! Sua média foi " + media + "!!"
+                    } else {
+                        if (media < 6.0) {
+                            paragrafoNota.textContent = "REPROVADO! Tente novamente... Sua média foi " + media + "!!"
                         }
+
+                    }
+                }
+            }
         }
 
-    return false;
-
-}
-     
-   
+        return false;
+    }
 
 </script>
-
-
